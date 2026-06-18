@@ -1,4 +1,4 @@
-import type { Metadata } from "next";
+import type { Metadata, Viewport } from "next";
 import localFont from "next/font/local";
 import "./globals.css";
 
@@ -14,8 +14,21 @@ const geistMono = localFont({
 });
 
 export const metadata: Metadata = {
-  title: "Dan Portfolio",
-  description: "Game Design Portfolio",
+  title: "Dan Moretti · Game Design Portfolio",
+  description:
+    "Portfolio of Daniele (Dan) Moretti — graduate game designer (RMIT, Distinction) specialising in game design, narrative development, and interactive experiences.",
+  openGraph: {
+    title: "Dan Moretti · Game Design Portfolio",
+    description:
+      "Graduate game designer specialising in game design, narrative development, and interactive experiences.",
+    type: "website",
+  },
+};
+
+export const viewport: Viewport = {
+  themeColor: "#1a222c",
+  width: "device-width",
+  initialScale: 1,
 };
 
 export default function RootLayout({
@@ -26,7 +39,7 @@ export default function RootLayout({
   return (
     <html lang="en" suppressHydrationWarning>
       <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased`}
+        className={`${geistSans.variable} ${geistMono.variable} font-sans antialiased`}
       >
         {children}
       </body>
